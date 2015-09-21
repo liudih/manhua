@@ -1,0 +1,1 @@
+var WebimgServer=new Array();var WebimgServerURL=new Array();WebimgServer[0]="ÖÇÄÜ";WebimgServerURL[0]="http://www.imanhua88.com/";WebimgServer[1]="±¸ÓÃ";WebimgServerURL[1]="http://www.imanhua88.com/";

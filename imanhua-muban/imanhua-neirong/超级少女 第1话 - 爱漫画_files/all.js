@@ -1,0 +1,34 @@
+jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options=options||{};if(value===null){value='';options.expires=-1}var expires='';if(options.expires&&(typeof options.expires=='number'||options.expires.toUTCString)){var date;if(typeof options.expires=='number'){date=new Date();date.setTime(date.getTime()+(options.expires*24*60*60*1000))}else{date=options.expires}expires='; expires='+date.toUTCString()}var path=options.path?'; path='+(options.path):'';var domain=options.domain?'; domain='+(options.domain):'';var secure=options.secure?'; secure':'';document.cookie=[name,'=',encodeURIComponent(value),expires,path,domain,secure].join('')}else{var cookieValue=null;if(document.cookie&&document.cookie!=''){var cookies=document.cookie.split(';');for(var i=0;i<cookies.length;i++){var cookie=jQuery.trim(cookies[i]);if(cookie.substring(0,name.length+1)==(name+'=')){cookieValue=decodeURIComponent(cookie.substring(name.length+1));break}}}return cookieValue}};function printPag(s,e,c){var str="";for(;s<=e;s++){if(s==c)str+="<span class=\"current\">"+s+"</span>";else str+="<a target=\"_self\" href=\"?p="+s+"\">"+s+"</a>";}
+return str;}
+function displayPager(n){if($("#dhtj").length==0){setTimeout("displayPager("+n+")",1000);return;}
+
+
+
+
+
+var wda=qTcms_S_m_murl;var wdaa=wda.split("$qingtiandy$");var maxpage=parseInt(wdaa.length);var pagesize=parseInt(7);var starpage=1;var str="";if(maxpage<12){$("#dhtj").html(printPag(1,maxpage,n));return;}
+if(n<=4){str+=printPag(starpage,pagesize,n);str+="<a>...</a>";str+=printPag(maxpage-1,maxpage,0);$("#dhtj").html(str);return;}
+if(n-parseInt(pagesize/2)>3){str+="<a target=\"_self\" href=\"?p=1\">1</a><a target=\"_self\" href=\"?p=2\">2</a><a>...</a>";str+=printPag(n-parseInt(pagesize/2),n-1,0);}else if(n>starpage){str+=printPag(starpage,n-starpage,0);}
+str+="<span class=\"current\">"+n+"</span>";if(n+5<maxpage){str+=printPag(n+1,n+3,0);str+="<a>...</a><a target=\"_self\" href=\"?p="+(maxpage-1)+"\">"+(maxpage-1)+"</a><a target=\"_self\" href=\"?p="+maxpage+"\">"+maxpage+"</a>";}else if(n<maxpage){str+=printPag(n+1,maxpage,0);}
+$("#dhtj").html(str);}
+var wdpdgd=$.cookie("wdguandeng");var orll=0;var yzscolor=null;function openOrCloseLights(){if(orll==0)
+{$(".supportLight span").html("开灯");$.cookie("wdguandeng","yes",{expires:1,path:'/'});orll=1;yzscolor=$("body").attr("class");$("body").attr("class","bg-black");}
+else
+{$(".supportLight span").html("关灯");$.cookie("wdguandeng",null,{expires:1,path:'/'});orll=0;if(!yzscolor){$("body").attr("class","bg-white");}else{$("body").attr("class",yzscolor);}}}
+if(wdpdgd=="yes"){openOrCloseLights();}
+function getpageinfo(){page_l=$(document).scrollLeft();page_t=$(document).scrollTop();page_w=$(window).width();page_h=$(window).height();page_b=page_h+page_t;page_r=page_w+page_l;page_cw=Math.floor(page_w/2)+page_l;page_ch=Math.floor(page_h/2)+page_t;}
+function open_wdtanchu(leixing,wangzhi){var tx_url='/support.asp?a=2&r='+ encodeURIComponent(document.URL);var l='';if($("#backlayer").length==0){l+='<div id="backlayer" style="position:absolute;background-color:#000;z-index:3456789012;display:none;left:0;top:0;filter:alpha(opacity=10);opacity:0.10;"></div>';}
+if($("#tixing_div").length==0){l+='<div id="tixing_div" style="border:2px solid #999;position:absolute;z-index:3456789123;display:none;line-height:30px;background:#fff;">';l+='<div style="position:absolute;z-index:3456789234;height:30px;width:590px;left:0;top:0;text-align:right;"><a href="javascript:void(0);" onclick="close_qq_tixing();" style="color:#fff;">关闭</a></div>';l+='<iframe name="tx_iframe" id="tx_iframe" scrolling="no" frameborder="0" height="500" width="600" src="'+tx_url+'"></iframe>';l+='</div>';}
+if(l!=''){$("body").append(l);}
+$("#backlayer").unbind().click(function(){close_qq_tixing();});getpageinfo();$("#backlayer").css({"left":"0","top":"0","width":page_r+"px","height":$(document).height()+"px"}).show();$("#tixing_div").css({"left":(page_cw-302)+"px","top":page_t+20+"px"}).show();}
+function open_wdtanchu3(leixing,wangzhi){var tx_url='/support.asp?a=3&r='+ encodeURIComponent(document.URL);var l='';if($("#backlayer3").length==0){l+='<div id="backlayer3" style="position:absolute;background-color:#000;z-index:3456789012;display:none;left:0;top:0;filter:alpha(opacity=10);opacity:0.10;"></div>';}
+if($("#tixing_div3").length==0){l+='<div id="tixing_div3" style="border:2px solid #999;position:absolute;z-index:3456789123;display:none;line-height:30px;background:#fff;">';l+='<div style="position:absolute;z-index:3456789234;height:30px;width:590px;left:0;top:0;text-align:right;"><a href="javascript:void(0);" onclick="close_qq_tixing3();" style="color:#fff;">关闭</a></div>';l+='<iframe name="tx_iframe" id="tx_iframe" scrolling="no" frameborder="0" height="500" width="600" src="'+tx_url+'"></iframe>';l+='</div>';}
+if(l!=''){$("body").append(l);}
+$("#backlayer3").unbind().click(function(){close_qq_tixing3();});getpageinfo();$("#backlayer3").css({"left":"0","top":"0","width":page_r+"px","height":$(document).height()+"px"}).show();$("#tixing_div3").css({"left":(page_cw-302)+"px","top":page_t+20+"px"}).show();}
+function close_qq_tixing(){$("#backlayer").hide();$("#tixing_div").hide();}
+function close_qq_tixing3(){$("#backlayer3").hide();$("#tixing_div3").hide();}
+var pVars=pVars||{};var uzmh=uzmh||{};uzmh.shortcuts=(function(){var c=0;var a=0;function d(){if(a==0){var f=[];f.push('<div id="tip-close"><a title="\u5173\u95ed" href="javascript:void(0);">\u5173\u95ed</a></div></div>');f.push("<i><i></i></i>");f.push('<div class="shadow tip-cont"><ol>');f.push(pVars.shortcuts.tip());f.push("</ol>");f.push("</div>");f.push("</div>");return f.join("")}
+return""}
+function b(){if(a==0){$("#tip-shortcuts").html(d());$("#tip-close a").click(function(){$("#tip-shortcuts").hide();$.cookie("tip-again",0,{expires:365,path:"/"});e()});a=1}}
+function e(){$("#shortcuts").hover(function(){b();$("#tip-shortcuts").show()},function(){$("#tip-shortcuts").hide()})}
+return{init:function(){var f=$.cookie("tip-again");c=(f==null||f==undefined)?1:0;if(c==1&&pVars.page==1){b();$("#tip-shortcuts").show()}else{e()}}}}());pVars={shortcuts:{key:{prev:"left",next:"right",prevC:"z",nextC:"x",ligher:"c"},tip:function(){var a=[];a.push('<strong>\u4e0a\u4e00\u9875\uff1a</strong><span class="keyboard key-left"></span>\u65b9\u5411\u952e\u5de6\u952e');a.push('<strong>\u4e0b\u4e00\u9875\uff1a</strong><span class="keyboard key-right"></span>\u65b9\u5411\u952e\u53f3\u952e');a.push('<strong>\u5f00\u5173\u706f\uff1a</strong><span class="keyboard key-c"></span>C\u952e');a.push('<strong>\u56de\u9876\u90e8\uff1a</strong><span class="keyboard key-v"></span>V\u952e');a.push('<strong>\u5168\u3000\u5c4f\uff1a</strong><span class="keyboard key-f11"></span>F11\u952e');return"<li>"+ a.join("</li><li>")+"</li>"}}};
