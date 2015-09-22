@@ -27,15 +27,15 @@ $(function($) {
 	
 	//阅读模式	
 	function readModeInit(){
-		if( 1 == getSetting('page_read_mode') ){
-			if( !isPageRead() ){
-				window.location.href = window.location.href.replace(/html/, 'shtml');
-			}
-		} else {
-			if( isPageRead() ){
-				window.location.href = window.location.href.replace(/shtml/, 'html');
-			}	
-		}
+//		if( 1 == getSetting('page_read_mode') ){
+//			if( !isPageRead() ){
+//				window.location.href = window.location.href.replace(/html/, 'shtml');
+//			}
+//		} else {
+//			if( isPageRead() ){
+//				window.location.href = window.location.href.replace(/shtml/, 'html');
+//			}	
+//		}
 		if( isPageRead() ){
 			$('#btn-read').parent().attr('class', 'read-1');
 			$('#btn-read').html('下拉阅读');

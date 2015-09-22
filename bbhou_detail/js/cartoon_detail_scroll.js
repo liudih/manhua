@@ -74,8 +74,6 @@ $(function(){
 		
 		var num = currentPageIndex;	
 		pic_base = getImgServer();
-		console.log("++++++++");
-		console.log("++++++++"+pic_base);
 		var imgUrl = picTree[currentPageIndex-1];
 		
 		if(typeof(imgUrl)=="undefined"){
