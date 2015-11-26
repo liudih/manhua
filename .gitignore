@@ -16,6 +16,5 @@ bin
 *.iml
 *.iws
 *.db
-**/data/elasticsearch/*
 RUNNING_PID
 artifactory
